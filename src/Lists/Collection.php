@@ -6,9 +6,22 @@ namespace Opmvpc\StructuresDonnees\Lists;
 
 class Collection extends ArrayList implements CollectionInterface
 {
-    public function map(callable $callback): CollectionInterface {}
+    public function map(callable $callback): CollectionInterface { 
+        // On peut retourner l'interface car il fera lui-même le lien avec les classes implémentées!!
+        // donc permet de généraliser le return aussi, plus "puissant" de renvoyer une Interface 
 
-    public function filter(callable $callback): CollectionInterface {}
+        /*$collectionmap = new Collection(); 
+        $collectionmap->elements = array_map($callback, $this->elements);
+        return $collectionmap;
+        -----> pas bon car pas le tableau d'un tableau...*/
+
+        $newarray = array_map($callback, $this->elements);
+        return new Collection($newarray);
+    }
+
+    public function filter(callable $callback): CollectionInterface {
+        
+    }
 
     public function reduce(callable $callback, mixed $initial = null): mixed {}
 

@@ -22,7 +22,12 @@ class LinkedList implements ListInterface
         return json_encode($this->toArray(), JSON_PRETTY_PRINT);
     }
 
-    public function push(mixed $element): void {}
+    public function push(mixed $element): void {
+        /* donc il faut ajouter à la linkedlist
+        un element pour un node et
+         un new object node dans lequel on push l'element
+         et la référence au nouveau node dans le node précédent*/
+    }
 
     public function get(int $index): mixed {}
 

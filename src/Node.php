@@ -7,7 +7,8 @@ namespace Opmvpc\StructuresDonnees;
 class Node
 {
     private mixed $element;
-    private ?Node $next;
+    private ?Node $next; // "?" means either a node object or null
+    // self-referential structure
 
     public function __construct(mixed $element, ?Node $next = null)
     {
